@@ -17,4 +17,4 @@ Crumble is built on top of and was inspired by [Grumble.js](https://github.com/j
 ## Download
 
 Releases are available for download from
-[GitHub](http://github.com/tommoor/crumble.js).
+[GitHub](http://github.com/tommoor/crumble).
