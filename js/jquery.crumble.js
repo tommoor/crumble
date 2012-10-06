@@ -19,9 +19,9 @@ var Crumble = function(){
 		grumble: {
 			text: '',
 			angle: 85, 
-			distance: 20, 
+			distance: 30, 
 			showAfter: 0,
-			hasHideButton: true
+			hasHideButton: false
 		},
 		scrollSpeed: 'fast',
 		onStep: function(){},
@@ -41,12 +41,27 @@ var Crumble = function(){
 		if (top < windowTop) {
 			$('html, body').animate({scrollTop: top - 50}, defaults.scrollSpeed);
 		} else if (bottom > windowBottom) {
-			$('html, body').animate({scrollTop: bottom - windowHeight + 50}, defaults.scrollSpeed);
+			$('html, body').animate({scrollTop: top - windowHeight - 50}, defaults.scrollSpeed);
 		}
 	};
 	
 	var getCurrentGrumble = function() {
-		return $('.grumble').last();
+		return $('.grumble').last().next();
+	};
+	
+	var calculateAngle = function($element) {
+		
+		var windowTop = $(window).scrollTop();
+		var centerX = window.innerWidth/2;
+		var centerY = window.innerHeight/2;
+		var elementX = $element.position().left;
+		var elementY = $element.position().top+windowTop;
+		var o = elementY-centerY;
+		var a = elementX-centerX;
+		var angle = Math.atan2(o, a) * (180/Math.PI);
+		
+		if (angle < 0) return angle+90;
+		return angle-90;
 	};
     
 	var methods = {
@@ -103,6 +118,18 @@ var Crumble = function(){
 			this.step();
 		},
 		
+		forward: function() {
+			
+			// move forward through the tour
+			position++;
+					
+			// show the next step
+			methods.step();
+					
+			// trigger any bound events
+			defaults.onStep(position);
+		},
+		
 		step: function() {
 			
 			// if we're at the start, trigger an event
@@ -129,34 +156,30 @@ var Crumble = function(){
 			
 			// check if target exists
 			if (!$current.length) {
-				// move forward through the tour
-				position++;
-					
-				// show the next step
-				methods.step();
-					
-				// trigger any bound events
-				defaults.onStep(position);
+				methods.forward();
 				return;
 			}
 			
 			// everything looks good, continue through the tour
 			var options = $.extend({}, defaults.grumble, current.options, {
+				angle: current.options.angle || calculateAngle($current),
 				onHide: function(){
-					
-					// move forward through the tour
-					position++;
-					
-					// show the next step
-					methods.step();
-					
-					// trigger any bound events
-					defaults.onStep(position);
+					methods.forward();
 				},
 				onShow: function() {
 					
 					var $grumble = getCurrentGrumble();
 					scrollToGrumble($grumble);
+					
+					$grumble.click(function(){
+						$current.trigger('hide.bubble');
+					});
+					
+					$grumble.hover(function(){
+						$grumble.prev().addClass('hover');
+					}, function(){
+						$grumble.prev().removeClass('hover');
+					});
 				}
 			});
 			

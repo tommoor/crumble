@@ -11,7 +11,8 @@
 	<meta name="description" content="Examples and documentation on crumble.js">
 	<meta name="author" content="Tom Moor">
 
-	<link rel="stylesheet" href="css/grumble.min.css?v=3">
+	<link rel="stylesheet" href="css/grumble.min.css">
+	<link rel="stylesheet" href="css/crumble.css">
 
 	<style>
 		body {
@@ -107,6 +108,7 @@
 			padding-left:3px;
 			height:20px;
 			border:1px solid #ddd;
+			margin: 200px 50px;
 			font-size: 12px;
 			font-family: Consolas, "Lucida Console", monospace;
 			}
@@ -141,10 +143,6 @@
 
 			
 			<h2>Examples</h2>
-			<p>
-				The following code animates a crumble tour, <a href="#" id="ex1">click here</a> to
-				see it in action.
-			</p>
 			
 			<span class="ex" id="one">Step 1</span>
 			<span class="ex" id="two">Step 2</span>
@@ -154,28 +152,26 @@
 	</div>
 	
 	<ol id="tour" style="display: none;">
-		<li data-target="#one" data-options="angle:150">
+		<li data-target="#one" data-options="angle:0">
 			Welcome to the tour, click anywhere to continue
 		</li>
-		<li data-target="#two" data-options="angle:20">
+		<li data-target="#two">
 			This is a step on the tour, it explains something
 		</li>
-		<li data-target="#three" ddata-options="angle:40;distance:30">
+		<li data-target="#three">
 			You can trigger events for each step in the tour
 		</li>
-		<li data-target="#four" data-options="angle:200">
+		<li data-target="#four">
 			and set options easily in HTML!
 		</li>
 	</ol>
-	
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="js/jquery.grumble.min.js"></script>
 	<script src="js/jquery.crumble.js"></script>
 
 	<script>
-		$('#ex1').click(function(){
-			$('#tour').crumble();
-		});
+		$('#tour').crumble();
 	</script>
 
 </body>
