@@ -152,17 +152,17 @@
 	</div>
 	
 	<ol id="tour" style="display: none;">
-		<li data-target="#one" data-options="angle:0">
+		<li data-target="#one" data-angle="130" data-options="distance:20">
 			Welcome to the tour, click anywhere to continue
 		</li>
 		<li data-target="#two">
 			This is a step on the tour, it explains something
 		</li>
-		<li data-target="#three">
+		<li data-target="#three" data-angle="45">
 			You can trigger events for each step in the tour
 		</li>
 		<li data-target="#four">
-			and set options easily in HTML!
+			set options easily in the HTML
 		</li>
 	</ol>
 
@@ -173,6 +173,5 @@
 	<script>
 		$('#tour').crumble();
 	</script>
-
 </body>
 </html>

@@ -36,12 +36,12 @@ var Crumble = function(){
 		var windowHeight = $(window).innerHeight();
 		var windowTop = $(window).scrollTop();
 		var windowBottom = windowHeight + windowTop;
-		var pad = 50;
+		var pad = 100;
 		
 		if (top < windowTop) {
-			$('html, body').animate({scrollTop: top - 50}, defaults.scrollSpeed);
+			$('html, body').animate({scrollTop: top - pad}, defaults.scrollSpeed);
 		} else if (bottom > windowBottom) {
-			$('html, body').animate({scrollTop: top - windowHeight - 50}, defaults.scrollSpeed);
+			$('html, body').animate({scrollTop: bottom - windowHeight + pad}, defaults.scrollSpeed);
 		}
 	};
 	
@@ -63,7 +63,21 @@ var Crumble = function(){
 		if (angle < 0) return angle+90;
 		return angle-90;
 	};
-    
+	
+	var bindKeys = function() {
+		
+		// Pressing the escape key will stop the tour
+		$(document).bind('keyup.crumble',function(ev){
+			
+			if(ev.keyCode === 27){
+			
+				ev.stopImmediatePropagation();
+				methods.clear();
+				$(document).unbind('keyup.crumble');
+			}
+		});
+	};
+	
 	var methods = {
 		init: function(o){
 			
@@ -106,6 +120,7 @@ var Crumble = function(){
 			
 			methods.clear();
 			methods.step();
+			bindKeys();
 			
 			return this;
 		},
@@ -127,7 +142,7 @@ var Crumble = function(){
 			methods.step();
 					
 			// trigger any bound events
-			defaults.onStep(position);
+			defaults.onStep(position, setup[position]);
 		},
 		
 		step: function() {
@@ -154,7 +169,7 @@ var Crumble = function(){
 				return;
 			}
 			
-			// check if target exists
+			// check if target exists, if not jump forward
 			if (!$current.length) {
 				methods.forward();
 				return;
@@ -171,7 +186,9 @@ var Crumble = function(){
 					var $grumble = getCurrentGrumble();
 					scrollToGrumble($grumble);
 					
-					$grumble.click(function(){
+					$grumble.click(function(ev){
+						ev.stopImmediatePropagation();
+						
 						$current.trigger('hide.bubble');
 					});
 					
@@ -182,6 +199,9 @@ var Crumble = function(){
 					});
 				}
 			});
+			
+			// ensure distance is a number, otherwise this breaks
+			options.distance = parseInt(options.distance, 10);
 			
 			$current.grumble(options);
 		},
