@@ -60,8 +60,8 @@ var Crumble = function(){
 		var a = elementX-centerX;
 		var angle = Math.atan2(o, a) * (180/Math.PI);
 		
-		if (angle < 0) return angle+90;
-		return angle-90;
+		if (angle < 0) return angle-90;
+		return angle+90;
 	};
 	
 	var bindKeys = function() {
