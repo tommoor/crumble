@@ -1,8 +1,10 @@
 # Crumble
 
-A quirky, interactive feature tour using [grumble.js](https://github.com/jamescryer/grumble.js) for steps along the way. Check out the [live demo here](http://tommoor.github.com/crumble/).
+A quirky, interactive feature tour using [grumble.js](https://github.com/jamescryer/grumble.js) for steps along the way.
 
 <img src="https://github.com/tommoor/crumble/blob/master/examples/screenshot.png?raw=true" />
+
+[See the live demo here](http://tommoor.github.com/crumble/).
 
 
 ## Documentation
