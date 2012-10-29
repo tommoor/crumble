@@ -1,6 +1,6 @@
 # Crumble
 
-A quirky, interactive feature tour using grumble.js for steps along the way.
+A quirky, interactive feature tour using grumble.js for steps along the way. Check out the [live demo here](http://tommoor.github.com/crumble/).
 
 <img src="https://github.com/tommoor/crumble/blob/master/examples/screenshot.png?raw=true" />
 
