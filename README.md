@@ -1,6 +1,6 @@
 # Crumble
 
-A quirky, interactive feature tour using grumble.js for steps along the way. Check out the [live demo here](http://tommoor.github.com/crumble/).
+A quirky, interactive feature tour using [grumble.js](https://github.com/jamescryer/grumble.js) for steps along the way. Check out the [live demo here](http://tommoor.github.com/crumble/).
 
 <img src="https://github.com/tommoor/crumble/blob/master/examples/screenshot.png?raw=true" />
 
@@ -66,7 +66,7 @@ $('#tour').crumble({
 Crumble is released under the MIT license. It is simple and easy to understand and places almost no restrictions on what you can do with Crumble.
 [More Information](http://en.wikipedia.org/wiki/MIT_License)
 
-Crumble is built on top of and was inspired by [Grumble.js](https://github.com/jamescryer/grumble.js)
+Crumble depends on and was inspired by [Grumble.js](https://github.com/jamescryer/grumble.js)
 
 
 ## Download
