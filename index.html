@@ -1,0 +1,65 @@
+<!doctype html>
+<head>
+	<title>Crumble - jQuery Feature Tours</title>
+	
+	<link rel="stylesheet" href="css/grumble.min.css">
+	<link rel="stylesheet" href="css/crumble.css">
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<ol id="tour" style="display:none;">
+		<li data-target="h1 span">Welcome to the Crumble demo! Click to continue.</li>
+		<li data-target="p">you are currently looking at an example tour</li>
+		<li data-target=".link">check out the detailed documentation over on GitHub</li>
+		<li data-target=".share-buttons" data-angle="190" data-options="distance:10">and make sure to give it a share</li>
+		<li data-target=".twitter" data-angle="20">or follow me on twitter!</li>
+	</ol>
+	<div id="container">
+		<ul class="share-buttons">
+		 	<li><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="tommoor" data-text="Crumble - Quirky jQuery feature tours for your website">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></li>
+       		<li><a href="http://bufferapp.com/add" class="buffer-add-button" data-count="vertical" data-via="tommoor" data-text="Crumble - Quirky jQuery feature tours for your website">Buffer</a><script type="text/javascript" src="http://static.bufferapp.com/js/button.js"></script></li>
+       		<li class="narrow"><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Ftommoor.github.com%2Fcrumble%2F&amp;send=false&amp;layout=box_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" class="facebook-share-button" allowTransparency="true"></iframe></li>
+       		<li><div class="g-plusone" data-size="tall"></div></li>
+       	</ul>
+		
+		<h1><span>Crumble</span></h1>
+		<h2>A quirky, interactive tour for your website or app.</h2>
+	
+		<p>Crumble allows you to quickly and easily build feature tours for your website or app using small bubbles!</p>
+	
+		<p>The bubbles are visually interesting, will draw attention and due to the small size make sure that you will
+			write using concise language that visitors will read.</p>
+		<p>The tour itself is defined as a standard ordered list
+			in your html, making it accessible.</p>
+	
+		<h3>Demo</h3>
+		<p>The demo is running on this page! Check out the source, or read the <a href="https://github.com/tommoor/crumble#crumble">documentation here</a> to find out more about how it works.</p>
+	
+		<h3>Download</h3>
+		<p>Crumble can be downloaded from the <a href="https://github.com/tommoor/crumble" class="link">public repository on github.</a></p>
+		<p>Crumble depends on grumble.js to generate the bubbles, you can <a href="https://github.com/jamescryer/grumble.js">download it here</a></p>
+	
+		<h3>Contact</h3>
+		<p>Please use github to submit issues with Crumble, or if you just want to say hey - i'm on twitter <a href="http://twitter.com/tommoor" class="twitter">@tommoor</a></p>
+	</div>
+	
+	<a href="http://github.com/tommoor/crumble"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+	
+	<script>
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="js/jquery.grumble.min.js"></script>
+	<script src="js/jquery.crumble.min.js"></script>
+
+	<script>
+	$(function(){
+		$('#tour').crumble();
+	});
+	</script>
+</body>
