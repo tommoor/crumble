@@ -188,8 +188,10 @@ var Crumble = function(){
 					
 					$grumble.click(function(ev){
 						ev.stopImmediatePropagation();
-						
-						$current.trigger('hide.bubble');
+						if (!$(this).data('CrumbleClick')){
+							$(this).data('CrumbleClick', true);
+							$current.trigger('hide.bubble');
+						}
 					});
 					
 					$grumble.hover(function(){
