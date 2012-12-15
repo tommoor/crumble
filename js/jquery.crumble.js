@@ -3,7 +3,7 @@
  * Tom Moor, http://tommoor.com
  * Copyright (c) 2012 Tom Moor
  * MIT Licensed
- * @version 0.2
+ * @version 0.3
  */
 
 (function($){
@@ -80,6 +80,9 @@ var Crumble = function(){
 	
 	var methods = {
 		init: function(o){
+			
+			// allow user to pass in an object and overwrite default args
+			defaults = $.extend(defaults, o);
 			
 			// parse setup
 			$('li', this).each(function(index, stop){
