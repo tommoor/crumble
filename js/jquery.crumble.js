@@ -3,7 +3,7 @@
  * Tom Moor, http://tommoor.com
  * Copyright (c) 2012 Tom Moor
  * MIT Licensed
- * @version 0.1
+ * @version 0.2
  */
 
 (function($){
@@ -185,11 +185,15 @@ var Crumble = function(){
 					
 					var $grumble = getCurrentGrumble();
 					scrollToGrumble($grumble);
+					$grumble.data('clicked', false);
 					
 					$grumble.click(function(ev){
 						ev.stopImmediatePropagation();
 						
-						$current.trigger('hide.bubble');
+						if (!$grumble.data('clicked')) {
+							$grumble.data('clicked', true);
+							$current.trigger('hide.bubble');
+						}
 					});
 					
 					$grumble.hover(function(){
